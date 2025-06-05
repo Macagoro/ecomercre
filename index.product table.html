@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Catalog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #81a24b 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(109, 21, 21, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgb(184, 168, 168);
+        }
+
+        th {
+            background: linear-gradient(135deg, #054277 0%, #033436 100%);
+            color: white;
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: 20px 15px;
+            border-bottom: 1px solid #e8e8e8;
+            vertical-align: top;
+            transition: all 0.3s ease;
+        }
+
+        tr:hover td {
+            background: linear-gradient(135deg, #b4550810 0%, #ad0b5c10 100%);
+            transform: scale(1.01);
+        }
+
+        .firm {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 120px;
+        }
+
+        .icon {
+            text-align: center;
+            font-size: 2rem;
+            min-width: 80px;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: #2980b9;
+            min-width: 180px;
+            font-size: 1.1rem;
+        }
+
+        .category {
+            background: linear-gradient(135deg, #66d0ea 0%, #92a24b 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .description {
+            max-width: 300px;
+        }
+
+        .description ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .description li {
+            position: relative;
+            padding: 5px 0 5px 20px;
+            margin: 5px 0;
+            color: #555555;
+            line-height: 1.4;
+        }
+
+        .description li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #27ae60;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            th, td {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .description {
+                max-width: 250px;
+            }
+        }
+
+        .row-even {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container animate-fade-in">
+        <div class="header">
+            <h1>Our Finest Collection</h1>
+            <p>Explore our handpicked collection of premium products from top -tier brands</p>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Firm</th>
+                        <th>Icon</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="firm">Apple Inc.</td>
+                        <td class="icon">📱</td>
+                        <td class="product-name">iPhone 15 Pro Max</td>
+                        <td><span class="category">Electronics</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>6.7-inch Super Retina XDR display</li>
+                                <li>A17 Pro chip with 6-core GPU</li>
+                                <li>Pro camera system with 5x zoom</li>
+                                <li>Titanium design with USB-C</li>
+                                <li>Up to 29 hours video playback</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">Nike</td>
+                        <td class="icon">👟</td>
+                        <td class="product-name">Air Jordan 4 Retro</td>
+                        <td><span class="category">Footwear</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>Premium leather and textile upper</li>
+                                <li>Air-Sole unit for cushioning</li>
+                                <li>Rubber outsole with pivot points</li>
+                                <li>Iconic wing eyelets design</li>
+                                <li>Available in multiple colorways</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Samsung</td>
+                        <td class="icon">💻</td>
+                        <td class="product-name">Galaxy Book4 Ultra</td>
+                        <td><span class="category">Computing</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>16-inch Dynamic AMOLED 2X display</li>
+                                <li>Intel Core Ultra 7 processor</li>
+                                <li>32GB LPDDR5X RAM</li>
+                                <li>1TB NVMe SSD storage</li>
+                                <li>All-day battery with fast charging</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">Sony</td>
+                        <td class="icon">🎧</td>
+                        <td class="product-name">WH-1000XM5 Headphones</td>
+                        <td><span class="category">Audio</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>Industry-leading noise cancellation</li>
+                                <li>30-hour battery life</li>
+                                <li>Multipoint Bluetooth connectivity</li>
+                                <li>Speak-to-chat technology</li>
+                                <li>Premium comfort design</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Tesla</td>
+                        <td class="icon">🚗</td>
+                        <td class="product-name">Model Y Performance</td>
+                        <td><span class="category">Automotive</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>Dual motor all-wheel drive</li>
+                                <li>0-60 mph in 3.5 seconds</li>
+                                <li>303 miles EPA estimated range</li>
+                                <li>Autopilot included standard</li>
+                                <li>Over-the-air software updates</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">Dyson</td>
+                        <td class="icon">🌪</td>
+                        <td class="product-name">V15 Detect Absolute</td>
+                        <td><span class="category">Home</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>Laser dust detection technology</li>
+                                <li>Up to 60 minutes runtime</li>
+                                <li>Advanced whole-machine filtration</li>
+                                <li>Intelligent suction adjustment</li>
+                                <li>Multiple cleaning attachments</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Rolex</td>
+                        <td class="icon">⌚</td>
+                        <td class="product-name">Submariner Date</td>
+                        <td><span class="category">Luxury</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>904L stainless steel construction</li>
+                                <li>Waterproof to 300 meters</li>
+                                <li>Self-winding mechanical movement</li>
+                                <li>Cerachrom bezel insert</li>
+                                <li>Swiss chronometer certification</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">Adidas</td>
+                        <td class="icon">👕</td>
+                        <td class="product-name">Ultraboost 23</td>
+                        <td><span class="category">Footwear</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>Boost midsole for energy return</li>
+                                <li>Primeknit upper for flexibility</li>
+                                <li>Continental rubber outsole</li>
+                                <li>Made with recycled materials</li>
+                                <li>Responsive and comfortable fit</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Bose</td>
+                        <td class="icon">🔊</td>
+                        <td class="product-name">SoundLink Revolve+</td>
+                        <td><span class="category">Audio</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>True 360-degree sound coverage</li>
+                                <li>Up to 17 hours battery life</li>
+                                <li>Water-resistant design (IPX4)</li>
+                                <li>Built-in microphone for calls</li>
+                                <li>Wireless Bluetooth connectivity</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">Canon</td>
+                        <td class="icon">📷</td>
+                        <td class="product-name">EOS R5 Mirrorless</td>
+                        <td><span class="category">Photography</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>45MP full-frame CMOS sensor</li>
+                                <li>8K RAW video recording</li>
+                                <li>In-body image stabilization</li>
+                                <li>Dual pixel autofocus system</li>
+                                <li>Weather-sealed construction</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Microsoft</td>
+                        <td class="icon">🖥</td>
+                        <td class="product-name">Surface Studio 2+</td>
+                        <td><span class="category">Computing</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>28-inch PixelSense touchscreen</li>
+                                <li>Intel Core i7 processor</li>
+                                <li>NVIDIA GeForce RTX graphics</li>
+                                <li>Zero-gravity hinge design</li>
+                                <li>Surface Pen and Dial included</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">KitchenAid</td>
+                        <td class="icon">🍳</td>
+                        <td class="product-name">Artisan Stand Mixer</td>
+                        <td><span class="category">Kitchen</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>5-quart stainless steel bowl</li>
+                                <li>10-speed slide control</li>
+                                <li>Tilt-head design for easy access</li>
+                                <li>Hub for over 15 attachments</li>
+                                <li>Available in 40+ colors</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Patagonia</td>
+                        <td class="icon">🧥</td>
+                        <td class="product-name">Houdini Windbreaker</td>
+                        <td><span class="category">Apparel</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>100% recycled nylon ripstop</li>
+                                <li>DWR finish for water resistance</li>
+                                <li>Packs into its own pocket</li>
+                                <li>Fair Trade Certified sewing</li>
+                                <li>Ultralight at 3.1 oz</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr class="row-even">
+                        <td class="firm">Nespresso</td>
+                        <td class="icon">☕</td>
+                        <td class="product-name">Vertuo Next Premium</td>
+                        <td><span class="category">Kitchen</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>One-touch brewing system</li>
+                                <li>5 cup sizes from espresso to alto</li>
+                                <li>Centrifusion extraction technology</li>
+                                <li>40-second heat-up time</li>
+                                <li>Smart connectivity features</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="firm">Peloton</td>
+                        <td class="icon">🚴</td>
+                        <td class="product-name">Bike+ Interactive</td>
+                        <td><span class="category">Fitness</span></td>
+                        <td class="description">
+                            <ul>
+                                <li>24-inch rotating HD touchscreen</li>
+                                <li>Auto-follow digital resistance</li>
+                                <li>Integrated Apple GymKit</li>
+                                <li>Surround sound audio system</li>
+                                <li>Live and on-demand classes</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
