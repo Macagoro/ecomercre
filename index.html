@@ -1,0 +1,78 @@
+<!-- customer-registration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Registration - ShopOnline</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #618aa8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+    }
+    .form-container {
+      background: #360101;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 400px;
+    }
+    .form-container h2 {
+      text-align: center;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 80px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      width: 100%;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <img src="data:image/png;base64,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" alt="company logo" class="logo">
+    <h2>ShopOnline Registration</h2>
+    <form>
+      <label for="name">Full name</label>
+      <input type="text" id="joshua agoro" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="joshuag.agoro@gmail.com" required>
+
+      <label for="phone">phone number</label>
+      <input type="tel" id="o705365487" required>
+
+      <label for="address">Address</label>
+      <input type="text" id="01000-38" required>
+
+      <label for="password">password</label>
+      <input type="password" id="37953006" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>
